@@ -1,0 +1,56 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeef8; /* Soft pink background */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff; /* White background for content area */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+h1 {
+    color: #d45d79; /* Romantic pink color */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+button {
+    background-color: #d45d79; /* Romantic pink */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #b73763; /* Slightly darker pink */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
