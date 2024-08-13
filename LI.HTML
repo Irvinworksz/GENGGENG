@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Sound Example</title>
+    <link rel="stylesheet" href="LI.CSS">
+</head>
+<body>
+    <div class="container">
+        <button id="myButton">PINDUTIN MO KUNG AYAW MONG BUMAGSAK SA MASTERAL</button>
+        <p id="message" class="hidden">BEEEEE BABAGSAK KA SA MASTERAL MO MANIFEST IT</p>
+        <audio id="sound" src="BINI.mp3"></audio>
+    </div>
+
+    <script>
+        document.getElementById('myButton').addEventListener('click', function() {
+            document.getElementById('message').classList.remove('hidden');
+            document.getElementById('sound').play();
+        });
+    </script>
+</body>
+</html>
