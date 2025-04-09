@@ -36,9 +36,10 @@
   }
   
   .circle-image-container {
-    width: 300px;
-    height: 300px;
-    margin-bottom: 20px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
   }
   
   .circle-image {
@@ -47,21 +48,77 @@
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #00f6ff;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px transparent;
   }
+  
+  /* Glowing effect on hover */
+  .circle-image:hover {
+    box-shadow: 0 0 20px #00f6ff, 0 0 40px #00f6ff, 0 0 60px #00f6ff;
+    transform: scale(1.05);
+  }
+  
   
   .home-title {
     font-size: 50px;
     color: #00f6ff;
     font-weight: bold;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  
+    /* Neon glow */
     text-shadow: 0 0 10px #00f6ff;
+  
+    /* Frosted glass effect */
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(0, 246, 255, 0.2);
   }
   
-  .intro h {
-    font-size: 20px;
-    color: #141313;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  
+  .home-title:hover {
+    text-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff, 0 0 35px #00f6ff;
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.08); 
+  }
+  
+
+  .myname {
+    font-weight: 600;  
+    font-style: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    color: #00f6ff;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  
+    /* Frosted glass effect */
+    background-color: rgba(255, 255, 255, 0.1); /* transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* for Safari support */
+  
+    /* Optional glow */
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Glow on hover */
+  .myname:hover {
+    box-shadow: 0 0 30px #00f6ff, 0 0 60px #00f6ff;
+    transform: scale(1.05);
+  }
+  
+  
+  /* Glowing effect nakita ko sa google */
+  .myname:hover {
+    box-shadow: 0 0 20px #00f6ff, 0 0 40px #00f6ff, 0 0 60px #00f6ff;
+    transform: scale(1.05);
   }
   
   /* ===== NAVIGATION BAR ===== */
@@ -119,39 +176,63 @@
     box-shadow: 0 0 10px #00f6ff;
   }
   
-  /* ===== ABOUT SECTION ===== */
+  /* ===== ABOUT ME SECTION ===== */
   .about-section {
     background-image: url('b.jpg');
     background-size: cover;
     background-position: center;
-    padding: 100px 20px;
-    text-align: center;
-    color: #fff;
-    height: 100vh;
     background-attachment: fixed;
-  }
-  
-  .about-section h1 {
-    font-size: 100px;
-    margin-bottom: 20px;
-    color: #00f6ff;
-  }
-  
-  .about-section {
-    line-height: 1.6;
-    margin: 20px;
-    font-size: x-large;
+    padding: 10px 10px;
+    height: 100vh;
     color: #ffffff;
-    padding: 15px;
+    line-height: 1.6;
+    font-size: 100px;
+    margin: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(240, 235, 235, 0.1);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    flex-direction: column;
   }
   
-  .about-section h2 {
-    font-size: larger;
-    color: #f3f5f5;
-    font-weight: 600;
+  /* Glowing About Me heading */
+  .about-section h1 {
+    font-size: 150px;
+    margin-bottom: 20px;
+    color: #070707;
+    text-shadow: 0 0 10px #00f6ff;
+    transition: all 0.3s ease;
   }
+  
+  /* Glow on hover */
+  .about-section h1:hover {
+    text-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff, 0 0 40px #00f6ff;
+    transform: scale(1.03);
+  }
+  
+  .par {
+    font-size: 50px;
+    color: #000; /* Black text */
+    text-emphasis-position: ;
+    text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 20px #00f6ff; /* Initial glowing effect */
+    transition: all 0.3s ease;
+    
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white background */
+    backdrop-filter: blur(8px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    padding: 20px; /* Space around the text */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 246, 255, 0.3); /* Optional glow effect */
+  }
+  
+  .par:hover {
+    text-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff, 0 0 35px #00f6ff; /* Stronger glow on hover */
+    transform: scale(1.03); /* Slightly grow on hover */
+  }
+  
   
   /* ===== CONTACT SECTION ===== */
   .contact-section {
@@ -163,18 +244,48 @@
     text-align: center;
     color: #fff;
     height: 100vh;
+    
+    /* Frosted-glass effect for better readability */
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly dark background to enhance text contrast */
+    backdrop-filter: blur(8px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 246, 255, 0.3); /* Optional glow around the section */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   
+  /* Glowing Contact heading */
   .contact-section h2 {
     font-size: 100px;
     margin-bottom: 20px;
-    color: #00f6ff;
+    color: #070707;
+    text-shadow: 0 0 10px #00f6ff;
+    transition: all 0.3s ease;
   }
   
+  /* Glow on hover for Contact heading */
+  .contact-section h2:hover {
+    text-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff, 0 0 40px #00f6ff;
+    transform: scale(1.03);
+  }
+  
+  /* Glowing Contact subheading */
   .contact-section h3 {
     font-size: 40px;
     margin-bottom: 20px;
-    color: #00f6ff;
+    color: #070707;
+    text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 20px #00f6ff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Glow on hover for Contact subheading */
+  .contact-section h3:hover {
+    text-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff, 0 0 35px #00f6ff;
+    transform: scale(1.03);
   }
   
   /* ===== RESPONSIVE DESIGN ===== */
