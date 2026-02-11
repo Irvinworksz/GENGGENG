@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sa'yo 'To</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff0f6;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Initial Sweet Message */
+        #intro {
+            position: absolute;
+            z-index: 10;
+            animation: fadeOut 1s forwards 3s; /* Fades out after 3 seconds */
+        }
+
+        #big-flower {
+            font-size: 120px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .sweet-text {
+            font-size: 1.5rem;
+            color: #d63384;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Running Flowers */
+        .flower {
+            position: absolute;
+            left: -150px;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        /* Animating the running flowers after the intro */
+        .run-start {
+            opacity: 1;
+            animation: run 4s linear forwards;
+        }
+
+        @keyframes run {
+            0% { left: -150px; transform: rotate(0deg); }
+            100% { left: 120%; transform: rotate(360deg); }
+        }
+
+        /* The Final Roast */
+        #roast-container {
+            display: none;
+            width: 90%;
+            z-index: 5;
+            padding: 20px;
+        }
+
+        .main-roast {
+            color: #ff0000;
+            font-size: clamp(3rem, 12vw, 6rem);
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .sub-roast {
+            color: #d63384;
+            font-size: clamp(1.5rem, 6vw, 3rem);
+            display: block;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* Positioning different flowers */
+        .f1 { bottom: 20%; font-size: 80px; }
+        .f2 { bottom: 50%; font-size: 60px; }
+        .f3 { bottom: 70%; font-size: 90px; }
+    </style>
+</head>
+<body>
+
+    <div id="intro">
+        <span id="big-flower">🌸</span>
+        <div class="sweet-text">Flowers for you! 💐</div>
+    </div>
+
+    <div class="flower f1" id="f1">🌸</div>
+    <div class="flower f2" id="f2">🌹</div>
+    <div class="flower f3" id="f3">🌷</div>
+
+    <div id="roast-container">
+        <div class="main-roast">KIMII LANG!</div>
+        <div class="sub-roast">Wala ka bulaklak, maldita ka kaseee! 🤪🤣</div>
+    </div>
+
+    <script>
+        // Sequence:
+        // 0s: Show "Flowers for you"
+        // 3s: Intro fades out, flowers start running
+        // 7s: Show the roast
+
+        setTimeout(() => {
+            // Start the running flowers
+            document.getElementById('f1').classList.add('run-start');
+            document.getElementById('f2').classList.add('run-start');
+            document.getElementById('f3').classList.add('run-start');
+        }, 3000);
+
+        setTimeout(() => {
+            // Show the final message
+            document.getElementById('roast-container').style.display = 'block';
+            // Hide running flowers just in case
+            document.querySelectorAll('.flower').forEach(f => f.style.display = 'none');
+        }, 7000);
+    </script>
+</body>
+</html>
