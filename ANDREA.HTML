@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Kay Andrea</title>
+    <style>
+        :root {
+            --soft-pink: #ffdae9;
+            --deep-rose: #d63384;
+            --white-glow: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffdae9 100%);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Floating Flowers Background */
+        .bg-flower {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
+        }
+
+        /* Initial Screen */
+        #intro-screen {
+            z-index: 10;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .main-flower {
+            font-size: 100px;
+            display: block;
+            filter: drop-shadow(0 0 10px white);
+            margin-bottom: 20px;
+            animation: heartBeat 2s infinite;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .greeting {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            color: var(--deep-rose);
+            font-style: italic;
+            text-shadow: 2px 2px white;
+        }
+
+        /* Final Message Screen */
+        #final-message {
+            position: absolute;
+            width: 85%;
+            max-width: 600px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 5;
+        }
+
+        #final-message.reveal {
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        .care-text {
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: #c2185b;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .mwah {
+            font-size: 2.5rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Responsive Mobile Tweak */
+        @media (max-width: 480px) {
+            .care-text { font-family: 'Trebuchet MS', sans-serif; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-flower" style="top: 10%; left: 10%;">🌸</div>
+    <div class="bg-flower" style="top: 15%; right: 15%; animation-delay: 1s;">🌷</div>
+    <div class="bg-flower" style="bottom: 20%; left: 20%; animation-delay: 2s;">🌹</div>
+    <div class="bg-flower" style="bottom: 10%; right: 10%; animation-delay: 0.5s;">🌺</div>
+
+    <div id="intro-screen">
+        <span class="main-flower">💐</span>
+        <div class="greeting">Flowers for you, Andrea...</div>
+    </div>
+
+    <div id="final-message">
+        <div class="care-text">Kumain ka na dyan, wag ka na magpaka-stress.</div>
+        <span class="mwah">Mwah! 💋</span>
+    </div>
+
+    <script>
+        // After 5.5 seconds, start fading the intro
+        setTimeout(() => {
+            document.getElementById('intro-screen').style.opacity = '0';
+        }, 5500);
+
+        // At exactly 7 seconds, reveal the care message
+        setTimeout(() => {
+            document.getElementById('intro-screen').style.display = 'none';
+            document.getElementById('final-message').classList.add('reveal');
+        }, 7000);
+    </script>
+</body>
+</html>
