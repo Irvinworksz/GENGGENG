@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para kay Binibining Kate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Changed background to a soft light blue */
+            background-color: #e3f2fd; 
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            perspective: 1200px;
+        }
+
+        #main-card {
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 30px;
+            /* Blue shadow and border */
+            box-shadow: 0 20px 50px rgba(30, 144, 255, 0.2);
+            text-align: center;
+            transition: all 0.8s ease;
+            border: 2px solid #90caf9;
+        }
+
+        /* Updated text colors to blues and purples */
+        h1 { color: #1565c0; font-size: 2.8rem; margin-bottom: 10px; }
+        p { color: #1e88e5; font-size: 1.4rem; }
+
+        .btn-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Blue Button Styles */
+        .yes { background: #1e88e5; color: white; }
+        .maybe { background: #bbdefb; color: #1565c0; }
+
+        .flower {
+            position: absolute;
+            pointer-events: none;
+            font-size: 45px;
+            z-index: 5;
+            user-select: none;
+        }
+
+        @keyframes burstOut {
+            0% {
+                transform: translate(-50%, -50%) translateZ(-500px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) translateZ(0px) rotate(var(--r));
+                opacity: 1;
+            }
+        }
+
+        /* Blue Blush Glow */
+        #blush {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, rgba(135,206,250,0) 20%, rgba(30,144,255,0.3) 100%);
+            opacity: 0;
+            transition: opacity 3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="blush"></div>
+
+    <div id="main-card">
+        <h1 id="title">Happy Valentine's, <br>Binibining Kate! 💙</h1>
+        <p id="message">Will you be my Valentine?</p>
+        
+        <div class="btn-container" id="buttons">
+            <button class="yes" onclick="startMagic()">Yes!</button>
+            <button class="maybe" onclick="startMagic()">Maybe? 😉</button>
+        </div>
+    </div>
+
+    <script>
+        function startMagic() {
+            const btnContainer = document.getElementById('buttons');
+            btnContainer.style.display = "none";
+
+            document.getElementById('title').innerHTML = "ANG DAMING BLUE FLOWERS PARA SA'YO TAPOS BLUE NA! 💎";
+            document.getElementById('message').innerHTML = "Para sa pinakamagandang binibini... <br> 💙💙💙";
+            document.getElementById('blush').style.opacity = "1";
+
+            // Updated to Blue Emojis
+            const emojis = ['💙', '🦋', '💠', '❄️', '✨', '💎', '🐳', '🌊'];
+            
+            for (let i = 0; i < 100; i++) {
+                createPersistentFlower(emojis);
+            }
+        }
+
+        function createPersistentFlower(emojis) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            const xDir = (Math.random() - 0.5) * 95 + "vw";
+            const yDir = (Math.random() - 0.5) * 95 + "vh";
+            const randomRotation = Math.random() * 360 + "deg";
+            
+            flower.style.setProperty('--x', xDir);
+            flower.style.setProperty('--y', yDir);
+            flower.style.setProperty('--r', randomRotation);
+            
+            flower.style.left = "50%";
+            flower.style.top = "50%";
+            
+            const duration = Math.random() * 1.5 + 1; 
+            flower.style.animation = `burstOut ${duration}s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards`;
+            
+            document.body.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
